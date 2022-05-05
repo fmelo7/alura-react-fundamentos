@@ -6,14 +6,17 @@ import style from './formulario.module.scss';
 class Formulario extends React.Component<{
     setTarefas: React.Dispatch<React.SetStateAction<ITarefa[]>>;
 }> {
-    state = {
+    tarefaDefault = {
         tarefa: '',
         tempo: '00:00',
     };
 
+    state = this.tarefaDefault;
+
     adicionarTarefa(evento: React.FormEvent<HTMLFormElement>) {
         evento.preventDefault();
         this.props.setTarefas((tarefasAntigas) => [...tarefasAntigas, { ...this.state }]);
+        this.setState(this.tarefaDefault);
     }
 
     render() {
