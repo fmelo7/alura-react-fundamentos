@@ -19,7 +19,7 @@ function App() {
             <Lista 
             selecionarTarefa={selecionarTarefa}
             tarefas={tarefas} />
-            <Cronometro />
+            <Cronometro selecionado={selecionado} />
         </div>
     );
 }
