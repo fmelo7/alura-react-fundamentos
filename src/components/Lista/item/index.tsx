@@ -8,7 +8,10 @@ export default function Item({ tarefa, tempo, selecionado, completado, id, selec
     console.log('item', { tarefa, tempo, selecionado, completado, id });
     return (
         <div>
-            <li className={style.item} onClick={() => selecionarTarefa({ tarefa, tempo, selecionado, completado, id })}>
+            <li
+                className={`${style.item} ${selecionado ? style.itemSelecionado : ''} ${completado ? style.itemCompletado : ''}`}
+                onClick={() => !completado && selecionarTarefa({ tarefa, tempo, selecionado, completado, id })}
+            >
                 <h3>{tarefa}</h3>
                 <span>{tempo}</span>
             </li>
